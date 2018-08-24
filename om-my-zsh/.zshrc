@@ -8,7 +8,7 @@ export ZSH=/home/damian/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,3 +93,14 @@ eval $(thefuck --alias)
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
+
+# First make sure you've installed powerline, fonts-powerline, and
+# zsh-theme-powerlevel9k.
+#
+#   sudo apt-get install powerline fonts-powerline zsh-theme-powerlevel9k
+#
+source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
+# Make sure that you've installed zsh-syntax-highlighting
+#
+#   sudo apt-get install zsh-syntax-highlighting
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
