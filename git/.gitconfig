@@ -1,6 +1,7 @@
 [user]
 	email = damian.nadales@gmail.com
 	name = Damian Nadales
+	signingkey = F2F6EDCDB0DBEE24
 [core]
 	editor = emacsclient
 [filter "lfs"]
