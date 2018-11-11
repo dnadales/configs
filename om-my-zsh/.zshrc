@@ -84,6 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias xo=xdg-open
 eval $(thefuck --alias)
 
 ## Stack autocompletion.
@@ -104,3 +105,8 @@ source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
 #
 #   sudo apt-get install zsh-syntax-highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## PATH modifications needed by jekyll
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+

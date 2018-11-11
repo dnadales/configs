@@ -1,5 +1,5 @@
 [user]
-	email = damian.nadales@gmail.com
+	email = damian.nadales@iohk.io
 	name = Damian Nadales
 	signingkey = F2F6EDCDB0DBEE24
 [core]
@@ -10,6 +10,7 @@
 	process = git-lfs filter-process
 	required = true
 [diff]
-	tool = meld
+    tool = meld
 [commit]
-  template = ~/.gitmessage
+    template = ~/.gitmessage
+	gpgsign = true
