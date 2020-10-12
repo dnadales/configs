@@ -98,3 +98,9 @@ eval "$(stack --bash-completion-script stack)"
 ## PATH modifications needed by jekyll
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
+
+## Required by direnv.
+##
+## See: https://direnv.net/docs/hook.html
+##
+eval "$(direnv hook zsh)"
