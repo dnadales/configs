@@ -1,0 +1,6 @@
+## We ignore the worktree directory at every project.
+##
+## In this way we can add worktrees relative to `.worktree`:
+##
+## > git worktree add .worktree/some-branch some-branch
+.worktree

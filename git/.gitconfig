@@ -4,6 +4,7 @@
 	signingkey = F2F6EDCDB0DBEE24
 [core]
 	editor = emacsclient
+    excludesfile = ~/.gitignore
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
