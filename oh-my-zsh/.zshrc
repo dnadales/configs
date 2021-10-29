@@ -8,7 +8,7 @@ export ZSH=/home/damian/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster" # Another good one might be "wedisagree"
+ZSH_THEME="gnzh" # Another good one might be "wedisagree"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,7 +52,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found autojump example haskell)
+plugins=(git command-not-found autojump example)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,3 +104,4 @@ export PATH=$HOME/gems/bin:$PATH
 ## See: https://direnv.net/docs/hook.html
 ##
 eval "$(direnv hook zsh)"
+if [ -e /home/damian/.nix-profile/etc/profile.d/nix.sh ]; then . /home/damian/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

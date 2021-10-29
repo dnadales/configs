@@ -2,6 +2,11 @@
 	email = damian.nadales@iohk.io
 	name = Damian Nadales
 	signingkey = F2F6EDCDB0DBEE24
+
+[user] # Signing key on my Cirrus 7
+	email = damian.nadales@iohk.io
+	name = Damian Nadales
+	signingkey = A70F2F00F5890ACB
 [core]
 	editor = emacsclient
     excludesfile = ~/.gitignore
