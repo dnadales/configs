@@ -81,10 +81,27 @@
                                (dot . t))
    )
   )
+
+;; For more org-roam configuration options see: https://github.com/jethrokuan/dots/blob/master/.doom.d/config.el
+(use-package! org-roam
+  :init
+  (setq org-roam-v2-ack t)
+  (map! :leader
+        :prefix "n"
+        :desc "org-roam" "l" #'org-roam-buffer-toggle
+        :desc "org-roam-node-insert" "i" #'org-roam-node-insert
+        :desc "org-roam-node-find" "f" #'org-roam-node-find
+        :desc "org-roam-ref-find" "r" #'org-roam-ref-find
+        :desc "org-roam-show-graph" "g" #'org-roam-show-graph
+        :desc "org-roam-capture" "c" #'org-roam-capture)
+  (setq org-roam-directory (file-truename "~/psys/roam/"))
+  :config
+  (org-roam-setup)
+  )
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
