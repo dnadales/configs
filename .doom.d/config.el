@@ -135,3 +135,23 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(map! :leader
+      :prefix "w"
+      :desc "windmove-left"  "n" #'windmove-left
+      :desc "windmove-down"  "e" #'windmove-down
+      :desc "windmove-right" "i" #'windmove-right
+      :desc "windmove-up"    "u" #'windmove-up
+
+      :desc "windmove-swap-states-left"  "N" #'windmove-swap-states-left
+      :desc "windmove-swap-states-down"  "E" #'windmove-swap-states-down
+      :desc "windmove-swap-states-right" "I" #'windmove-swap-states-right
+      :desc "windmove-swap-states-up"    "U" #'windmove-swap-states-up
+
+      :desc "Undo windows config"  "z" #'winner-undo
+      :desc "Re-do windows config" "y" #'winner-redo
+      )
+
+(use-package! lsp-ui
+  :config
+  (setq lsp-ui-doc-enable nil))
