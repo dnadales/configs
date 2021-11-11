@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Damian Nadales"
@@ -21,6 +20,12 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+
+(setq doom-font                "Inconsolata-12"  ;; sudo apt-get install fonts-inconsolata
+      doom-variable-pitch-font "Inconsolata-13")
+;; Other fonts you might want to consider:
+;; ;; (setq doom-font "JetBrains Mono-10") ;; https://www.jetbrains.com/lp/mono/#how-to-install
+
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
