@@ -78,7 +78,18 @@
                                  (calendar-path :level . 1)))
          ;; Custom agenda commands
          org-agenda-custom-commands `(;; match those tagged with :inbox:, are not scheduled, are not DONE.
-                                       ("u" "[u]nscheduled tasks" tags "-SCHEDULED={.+}/!+TODO|+STARTED|+WAITING"))
+                                      ("u" "[u]nscheduled tasks" tags "-SCHEDULED={.+}/!+TODO|+STARTED|+WAITING"))
+
+
+         org-modules '(org-habit)
+         org-habit-show-habits t
+         org-habit-graph-column 60
+         ;; I'm disabling this temporarily since I'm getting a
+         ;;
+         ;;     Cached element has wrong parent
+         ;;
+         ;; error.
+         org-element-use-cache nil
          )
   ;; Org-babel supported languages
   (org-babel-do-load-languages
