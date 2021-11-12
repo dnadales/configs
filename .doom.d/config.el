@@ -162,3 +162,9 @@
 (use-package! lsp-ui
   :config
   (setq lsp-ui-doc-enable nil))
+
+(use-package! pdf-view
+  :hook (pdf-tools-enabled . pdf-view-midnight-minor-mode)
+  :hook (pdf-tools-enabled . hide-mode-line-mode)
+  :config
+  (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
