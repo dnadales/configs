@@ -115,9 +115,16 @@
   (org-roam-setup)
   )
 
+(use-package! doom-modeline
+  :config
+  (setq doom-modeline-buffer-file-name-style 'buffer-name
+        doom-modeline-major-mode-icon t))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+(setq doom-modeline-buffer-file-name-style 'relative-to-project)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
