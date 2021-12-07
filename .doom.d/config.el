@@ -90,6 +90,9 @@
          ;;
          ;; error.
          org-element-use-cache nil
+
+         ;; Leave my apostrophes alone.
+         org-export-with-smart-quotes nil
          )
   ;; Org-babel supported languages
   (org-babel-do-load-languages
