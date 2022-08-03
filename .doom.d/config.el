@@ -184,3 +184,27 @@
   :hook (pdf-tools-enabled . hide-mode-line-mode)
   :config
   (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
+
+(after! haskell-mode
+  ;; Improve code navigation in Haskell buffers
+  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
+  (add-hook 'haskell-mode-hook #'haskell-indentation-mode))
+
+(use-package! bug-reference
+  :custom (bug-reference-bug-regexp (rx (group (group (| (: ?#)
+                                                         (: "CAD-")))
+                                               (group (+ digit)))))
+  :config (defun my-jira-url () "No documentation for this one"
+                  ;; input-output.atlassian.net/browse
+                 (format "https://%s/%s%s"
+                         (if (string-suffix-p "#" (match-string-no-properties 2))
+                             "github.com/input-output-hk/ouroboros-network/pull"
+                           "input-output.atlassian.net/browse")
+                         (if (string-suffix-p "#" (match-string-no-properties 2))
+                             ""
+                           "CAD-")
+                         (match-string-no-properties 3)))
+          (setq bug-reference-url-format #'my-jira-url)
+  :hook
+    (org-mode . bug-reference-mode)
+    (prog-mode . bug-reference-prog-mode))
