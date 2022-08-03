@@ -44,8 +44,9 @@
 (setq calendar-path (concat org-directory "calendar.org"))
 (setq projects-path (concat org-directory "projects.org"))
 (setq next-actions-path (concat org-directory "next-actions.org"))
+(setq maybe-someday-path (concat org-directory "maybe-someday.org"))
 (after! org
-  (setq  org-agenda-files (list calendar-path)
+  (setq  org-agenda-files (list calendar-path next-actions-path)
          ;; This adds a ``CLOSED'' label to the TODO entry, which describes the
          ;; date and time in which the activity was marked as done.
          org-log-done t
@@ -79,8 +80,9 @@
                                            ; top-level.
          org-outline-path-complete-in-steps nil
          org-refile-targets (quote ((projects-path :level . 1)
-                                 (next-actions-path :level . 1)
-                                 (calendar-path :level . 1)))
+                                    (next-actions-path :level . 1)
+                                    (calendar-path :level . 1)
+                                    (maybe-someday-path :level . 1)))
          ;; Custom agenda commands
          org-agenda-custom-commands `(;; match those tagged with :inbox:, are not scheduled, are not DONE.
                                       ("u" "[u]nscheduled tasks" tags "-SCHEDULED={.+}/!+TODO|+STARTED|+WAITING"))
