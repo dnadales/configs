@@ -21,8 +21,8 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font                "Inconsolata-12"  ;; sudo apt-get install fonts-inconsolata
-      doom-variable-pitch-font "Inconsolata-13")
+(setq doom-font                "Inconsolata-18"  ;; sudo apt-get install fonts-inconsolata
+      doom-variable-pitch-font "Inconsolata-20")
 ;; Other fonts you might want to consider:
 ;; ;; (setq doom-font "JetBrains Mono-10") ;; https://www.jetbrains.com/lp/mono/#how-to-install
 
