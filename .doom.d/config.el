@@ -173,6 +173,12 @@
   :config
   (setq lsp-ui-doc-enable nil))
 
+(use-package! lsp-haskell
+  :config
+  (setq lsp-haskell-stylish-haskell-on t)
+  (setq lsp-haskell-formatting-provider "stylish-haskell")
+  (setq haskell-stylish-on-save t))
+
 (use-package! pdf-view
   :hook (pdf-tools-enabled . pdf-view-midnight-minor-mode)
   :hook (pdf-tools-enabled . hide-mode-line-mode)
