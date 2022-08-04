@@ -109,7 +109,9 @@
   )
 
 ;; For more org-roam configuration options see: https://github.com/jethrokuan/dots/blob/master/.doom.d/config.el
-(use-package! org-roam
+;; 
+;; Package org-roam was unpinned ('use-package' was changed to 'after') due to an upgrade error.
+(after! org-roam
   :init
   (setq org-roam-v2-ack t)
   (map! :leader
