@@ -49,3 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (package! ox-gfm)
+
+(package! gnuplot)
+
+(package! yaml-mode)

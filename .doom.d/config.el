@@ -8,6 +8,15 @@
 (setq user-full-name "Damian Nadales"
       user-mail-address "damian.only@gmail.com")
 
+(setq tab-always-indent 'complete)
+
+;; This setting is ignored
+;;
+(use-package! uniquify
+  :config
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+;;
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -21,10 +30,12 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font                "Inconsolata-18"  ;; sudo apt-get install fonts-inconsolata
-      doom-variable-pitch-font "Inconsolata-20")
+;; (setq doom-font                "Inconsolata-18"  ;; sudo apt-get install fonts-inconsolata
+;;       doom-variable-pitch-font "Inconsolata-20")
+ (setq doom-font                "JetBrains Mono-15"  ;; ;; https://www.jetbrains.com/lp/mono/#how-to-install
+       doom-variable-pitch-font "JetBrains Mono-16");;
 ;; Other fonts you might want to consider:
-;; ;; (setq doom-font "JetBrains Mono-10") ;; https://www.jetbrains.com/lp/mono/#how-to-install
+;; ;; (setq doom-font "JetBrains Mono-10")
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -74,6 +85,7 @@
          org-log-into-drawer t
          org-odd-levels-only t
          ;; Refile configuration
+         org-reverse-note-order t
          org-refile-use-outline-path 'file ; Use the file path as of the
                                            ; refiling targets. This makes it
                                            ; possible to refile nodes to the
@@ -119,7 +131,6 @@
         :desc "org-roam" "l" #'org-roam-buffer-toggle
         :desc "org-roam-node-insert" "i" #'org-roam-node-insert
         :desc "org-roam-node-find" "f" #'org-roam-node-find
-        :desc "org-roam-ref-find" "r" #'org-roam-ref-find
         :desc "org-roam-show-graph" "g" #'org-roam-show-graph
         :desc "org-roam-capture" "c" #'org-roam-capture)
   (setq org-roam-directory (file-truename "~/psys/roam/"))
@@ -171,26 +182,65 @@
       :desc "Re-do windows config" "y" #'winner-redo
       )
 
-(use-package! lsp-ui
-  :config
-  (setq lsp-ui-doc-enable nil))
+;; (use-package! lsp-ui
+;;   :config
+;;   (setq lsp-ui-doc-enable nil))
 
 (use-package! lsp-haskell
-  :config
-  (setq lsp-haskell-stylish-haskell-on t)
-  (setq lsp-haskell-formatting-provider "stylish-haskell")
-  (setq haskell-stylish-on-save t))
+  ;; :config
+  ;; (setq lsp-haskell-stylish-haskell-on t)
+  ;; (setq lsp-haskell-formatting-provider "stylish-haskell")
+  ;; (setq haskell-stylish-on-save t)
+  :custom
+  (lsp-haskell-formatting-provider "stylish-haskell")
+  (haskell-stylish-on-save t)
+  ;; (lsp-haskell-plugin-hlint-diagnostics-on nil)
+  (lsp-haskell-plugin-eval-global-on nil)
+  (lsp-haskell-plugin-import-lens-code-lens-on nil)
+  (lsp-haskell-plugin-refine-imports-global-on nil)
+  )
+
+;; (require 'align)
+
+;; (use-package! haskell-mode
+;;   :config
+;;   (add-to-list 'align-rules-list
+;;                '(haskell-types
+;;                  (regexp . "\\(\\s-+\\)::\\s-+")
+;;                  (modes quote (haskell-mode literate-haskell-mode))))
+;;   (add-to-list 'align-rules-list
+;;                '(haskell-assignment
+;;                  (regexp . "\\(\\s-+\\)=\\s-+")
+;;                  (modes quote (haskell-mode literate-haskell-mode))))
+;;   (add-to-list 'align-rules-list
+;;                '(haskell-arrows
+;;                  (regexp . "\\(\\s-+\\)->\\s-+")
+;;                  (modes quote (haskell-mode literate-haskell-mode))))
+;;   (add-to-list 'align-rules-list
+;;                '(haskell-left-arrows
+;;                  (regexp . "\\(\\s-+\\)<-\\s-+")
+;;                  (modes quote (haskell-mode literate-haskell-mode))))
+;;   :bind
+;;   (:map haskell-mode-map
+;;    ("C-`" . haskell-interactive-bring)
+;;    ("C-c C-c" . haskell-process-cabal-build)
+;;    ("C-c C-i" . haskell-process-do-info)
+;;    ("C-c C-l" . haskell-process-load-or-reload)
+;;    ("C-c C-s" . haskell-mode-toggle-scc-at-point)
+;;    ("C-c C-t" . haskell-process-do-type)
+;;    ("M-["     . align))
+;;   :custom
+;;   (haskell-process-use-presentation-mode t)
+;;   (haskell-process-suggest-remove-import-lines t)
+;;   :hook
+;;   (haskell-mode . haskell-decl-scan-mode)
+;;   (haskell-mode . which-function-mode))
 
 (use-package! pdf-view
   :hook (pdf-tools-enabled . pdf-view-midnight-minor-mode)
   :hook (pdf-tools-enabled . hide-mode-line-mode)
   :config
   (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
-
-(after! haskell-mode
-  ;; Improve code navigation in Haskell buffers
-  (add-hook 'haskell-mode-hook #'haskell-decl-scan-mode)
-  (add-hook 'haskell-mode-hook #'haskell-indentation-mode))
 
 (use-package! bug-reference
   :custom (bug-reference-bug-regexp (rx (group (group (| (: ?#)
