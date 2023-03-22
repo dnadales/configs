@@ -136,3 +136,11 @@ export HISTSIZE=10000000000
 setopt INC_APPEND_HISTORY
 # Ignore duplicates. Oh-my-zsh probably sets this, but it's better to be on the safe side.
 setopt HIST_IGNORE_ALL_DUPS
+
+# Required by cardano-node and upstream libraries. See https://developers.cardano.org/docs/get-started/installing-cardano-node/#linux
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
