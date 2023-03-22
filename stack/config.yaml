@@ -1,0 +1,8 @@
+templates:
+  params:
+    author-email: damian.only@gmail.com
+    author-name: Damian Nadales
+    copyright: Damian Nadales
+    github-username: dnadales
+system-ghc: true
+install-ghc: false
