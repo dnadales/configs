@@ -21,3 +21,5 @@
 [commit]
     template = ~/.gitmessage
 	gpgsign = true
+[merge]
+	conflictstyle = diff3
