@@ -122,6 +122,9 @@ eval "$(stack --bash-completion-script stack)"
 ## Load jump around function for quick directory navigation (https://github.com/rupa/z)
 . ~/.local/bin/z.sh
 
+## ghcup configuration
+[ -f "/home/damian/.ghcup/env" ] && source "/home/damian/.ghcup/env" # ghcup-env
+
 ##
 ## zsh history settings
 ##
