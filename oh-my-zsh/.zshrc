@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan" # The default one was "robbyrussell". Another good one might be "wedisagree"
+ZSH_THEME="amuse" # The default one was "robbyrussell". Another good one might be "wedisagree"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -111,13 +111,17 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 eval "$(stack --bash-completion-script stack)"
 
+# Added by Nix installer
+if [ -e /home/damian/.nix-profile/etc/profile.d/nix.sh ]; then . /home/damian/.nix-profile/etc/profile.d/nix.sh; fi
+
+# https://github.com/nix-community/nix-direnv#with-nix-profile
+source $HOME/.nix-profile/share/nix-direnv/direnvrc
+
 ## Required by direnv.
 ##
 ## See: https://direnv.net/docs/hook.html
 ##
-## eval "$(direnv hook zsh)"
-## if [ -e /home/damian/.nix-profile/etc/profile.d/nix.sh ]; then . /home/damian/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
+eval "$(direnv hook zsh)"
 
 ## Load jump around function for quick directory navigation (https://github.com/rupa/z)
 . ~/.local/bin/z.sh
@@ -137,10 +141,16 @@ setopt INC_APPEND_HISTORY
 # Ignore duplicates. Oh-my-zsh probably sets this, but it's better to be on the safe side.
 setopt HIST_IGNORE_ALL_DUPS
 
-# Required by cardano-node and upstream libraries. See https://developers.cardano.org/docs/get-started/installing-cardano-node/#linux
-export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
-
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin:/home/damian/go/bin/
+
+# Rust
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

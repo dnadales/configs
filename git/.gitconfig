@@ -1,25 +1,21 @@
 [user]
 	email = damian.nadales@iohk.io
 	name = Damian Nadales
-	signingkey = F2F6EDCDB0DBEE24
-
-[user] # Signing key on pampero
-	email = damian.only@gmail.com
-	name = Damian Nadales
-	signingkey = 4AB08C10A820649A
+	signingkey = 5D4FE8505464AB1E
 
 [core]
 	editor = emacsclient
-    excludesfile = ~/.gitignore
+        excludesfile = ~/.gitignore
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [diff]
-    tool = meld
+        tool = meld
 [commit]
-    template = ~/.gitmessage
+        template = ~/.gitmessage
 	gpgsign = true
 [merge]
 	conflictstyle = diff3
