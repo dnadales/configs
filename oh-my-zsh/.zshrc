@@ -101,6 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias xo=xdg-open
+
+# ouroboros-consensus nix build shortcuts (must be run inside the repo)
+alias nbq='nix build .#hydraJobs.x86_64-linux.native.haskell96.build .#hydraJobs.x86_64-linux.native.haskell96.checks'
+alias nba='nix build .#hydraJobs.x86_64-linux.required.native'
+
 eval $(thefuck --alias)
 
 ## Stack autocompletion.
